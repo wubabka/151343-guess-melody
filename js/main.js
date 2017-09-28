@@ -3,7 +3,7 @@
   const CODE_ARROW_RIGHT = 39;
   const CODE_ALT = 18;
 
-  const template = document.querySelector(`template`);
+  const template = document.getElementById(`templates`);
 
   const loadTemplate = (templateName) => {
     const content = template.content ? template.content : template;
@@ -26,17 +26,18 @@
   };
 
   document.onkeydown = (evt) => {
-    evt.preventDefault();
-
     switch (evt.keyCode) {
       case CODE_ALT && CODE_ARROW_LEFT:
-        current--;
+        if (current > 0) {
+          current--;
+        }
         break;
       case CODE_ALT && CODE_ARROW_RIGHT:
-        current++;
+        if (current < slides.length - 1) {
+          current++;
+        }
         break;
     }
-
     selectSlide(current);
   };
 
