@@ -1,6 +1,6 @@
 import getTemplate from './parse-template';
 
-const template = getTemplate(`<section class="main main--level main--level-genre">
+const genre = getTemplate(`<section class="main main--level main--level-genre">
 <svg xmlns="http://www.w3.org/2000/svg" class="timer" viewBox="0 0 780 780">
   <circle
     cx="390" cy="390" r="370"
@@ -83,4 +83,4 @@ const template = getTemplate(`<section class="main main--level main--level-genre
 </div>
 </section>`);
 
-export default template;
+export default genre;

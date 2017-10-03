@@ -1,6 +1,6 @@
 import getTemplate from './parse-template';
 
-const template = getTemplate(`<section class="main main--result">
+const result = getTemplate(`<section class="main main--result">
 <section class="logo" title="Угадай мелодию"><h1>Угадай мелодию</h1></section>
 
 <h2 class="title">Вы настоящий меломан!</h2>
@@ -11,4 +11,4 @@ const template = getTemplate(`<section class="main main--result">
 <span role="button" tabindex="0" class="main-replay">Сыграть ещё раз</span>
 </section>`);
 
-export default template;
+export default result;
