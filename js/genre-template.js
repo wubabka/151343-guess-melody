@@ -90,21 +90,15 @@ const genre = getTemplate(`<section class="main main--level main--level-genre">
 const slides = [result, resultTime, resultTry];
 
 const genreAnswerSend = genre.querySelector(`.genre-answer-send`);
-const checkBox = genre.querySelector(`.checkbox-answer`);
+const genreMain = genre.querySelector(`.genre`);
 
 genreAnswerSend.setAttribute(`disabled`, `disabled`);
 
-checkBox.addEventListener(`change`, (e) => {
-  e.preventDefault();
+const checkInputs = () => {
+  genreAnswerSend.disabled = genreMain.querySelectorAll(`input[name="answer"]:checked`).length === 0;
+};
 
-  if (e.target.hasAttribute(`checked`)) {
-    e.target.removeAttribute(`checked`);
-    genreAnswerSend.setAttribute(`disabled`, `disabled`);
-  } else {
-    e.target.setAttribute(`checked`, `checked`);
-    genreAnswerSend.removeAttribute(`disabled`);
-  }
-});
+genreMain.addEventListener(`click`, checkInputs);
 
 genreAnswerSend.addEventListener(`click`, (e) => {
   e.preventDefault();
