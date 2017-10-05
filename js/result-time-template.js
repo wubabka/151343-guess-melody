@@ -8,4 +8,11 @@ const resultTime = getTemplate(`<section class="main main--result">
 <span role="button" tabindex="0" class="main-replay">Попробовать ещё раз</span>
 </section>`);
 
+const mainReplay = resultTime.querySelector(`.main-replay`);
+
+mainReplay.addEventListener(`click`, (e) => {
+  e.preventDefault();
+  document.location.reload(true);
+});
+
 export default resultTime;

@@ -1,5 +1,5 @@
 import getTemplate from './parse-template';
-import showSlide from './show-template';
+import showScreen from './show-template';
 import artist from './artist-template';
 
 const welcome = getTemplate(`<section class="main main--welcome">
@@ -13,14 +13,11 @@ const welcome = getTemplate(`<section class="main main--welcome">
 </p>
 </section>`);
 
-// const bindActions = () => {
-//   let mainPlay = document.querySelector(`.main-play`);
+const mainPlay = welcome.querySelector(`.main-play`);
 
-//   mainPlay.addEventListener(`click`, () => {
-//     showSlide(artist);
-//   });
-// };
-
-// export {welcome, bindActions};
+mainPlay.addEventListener(`click`, (e) => {
+  e.preventDefault();
+  showScreen(artist);
+});
 
 export default welcome;

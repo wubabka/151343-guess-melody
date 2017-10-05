@@ -1,5 +1,7 @@
-export default function (string) {
-  const template = document.createElement(`div`);
+export default (string) => {
+  const template = document.createElement(`template`);
+
   template.innerHTML = string;
-  return template.firstChild;
-}
+
+  return template.content;
+};

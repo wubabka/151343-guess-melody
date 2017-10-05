@@ -11,4 +11,11 @@ const result = getTemplate(`<section class="main main--result">
 <span role="button" tabindex="0" class="main-replay">Сыграть ещё раз</span>
 </section>`);
 
+const mainReplay = result.querySelector(`.main-replay`);
+
+mainReplay.addEventListener(`click`, (e) => {
+  e.preventDefault();
+  document.location.reload(true);
+});
+
 export default result;

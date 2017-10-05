@@ -1,10 +1,4 @@
-import showSlide from './show-template';
-import welcome from './welcome-template';
-import artist from './artist-template';
-import genre from './genre-template';
+import showScreen from './show-template';
+import welcomeScreen from './welcome-template';
 
-import bindActions from './bindActions';
-
-showSlide(welcome);
-bindActions(`.main-play`, artist);
-bindActions(`.main-answer`, genre);
+showScreen(welcomeScreen);

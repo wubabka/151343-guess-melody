@@ -1,5 +1,5 @@
 import getTemplate from './parse-template';
-import showSlide from './show-template';
+import showScreen from './show-template';
 import genre from './genre-template';
 
 const artist = getTemplate(`<section class="main main--level main--level-artist">
@@ -31,7 +31,7 @@ const artist = getTemplate(`<section class="main main--level main--level-artist"
       </div>
     </div>
   </div>
-  <form class="main-list">
+  <form class="main-list" autocomplete="off">
     <div class="main-answer-wrapper">
       <input class="main-answer-r" type="radio" id="answer-1" name="answer" value="val-1"/>
       <label class="main-answer" for="answer-1">
@@ -62,14 +62,14 @@ const artist = getTemplate(`<section class="main main--level main--level-artist"
 </div>
 </section>`);
 
-// const qq = () => {
-//   let mainAnswer = document.querySelector(`.main-answer`);
+const mainAnswer = artist.querySelector(`.main-list`);
 
-//   mainAnswer.addEventListener(`click`, () => {
-//     showSlide(genre);
-//   });
-// };
+mainAnswer.addEventListener(`change`, (e) => {
+  e.preventDefault();
 
-// export default qq;
+  if (e.target.tagName === `INPUT`) {
+    showScreen(genre);
+  }
+});
 
 export default artist;

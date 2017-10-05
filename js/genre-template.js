@@ -1,4 +1,8 @@
 import getTemplate from './parse-template';
+import showScreen from './show-template';
+import result from './result-template';
+import resultTime from './result-time-template';
+import resultTry from './result-try-template';
 
 const genre = getTemplate(`<section class="main main--level main--level-genre">
 <svg xmlns="http://www.w3.org/2000/svg" class="timer" viewBox="0 0 780 780">
@@ -32,7 +36,7 @@ const genre = getTemplate(`<section class="main main--level main--level-genre">
           </div>
         </div>
       </div>
-      <input type="checkbox" name="answer" value="answer-1" id="a-1">
+      <input class="checkbox-answer" type="checkbox" name="answer" value="answer-1" id="a-1">
       <label class="genre-answer-check" for="a-1"></label>
     </div>
 
@@ -46,7 +50,7 @@ const genre = getTemplate(`<section class="main main--level main--level-genre">
           </div>
         </div>
       </div>
-      <input type="checkbox" name="answer" value="answer-1" id="a-2">
+      <input class="checkbox-answer" type="checkbox" name="answer" value="answer-1" id="a-2">
       <label class="genre-answer-check" for="a-2"></label>
     </div>
 
@@ -60,7 +64,7 @@ const genre = getTemplate(`<section class="main main--level main--level-genre">
           </div>
         </div>
       </div>
-      <input type="checkbox" name="answer" value="answer-1" id="a-3">
+      <input class="checkbox-answer" type="checkbox" name="answer" value="answer-1" id="a-3">
       <label class="genre-answer-check" for="a-3"></label>
     </div>
 
@@ -74,7 +78,7 @@ const genre = getTemplate(`<section class="main main--level main--level-genre">
           </div>
         </div>
       </div>
-      <input type="checkbox" name="answer" value="answer-1" id="a-4">
+      <input class="checkbox-answer" type="checkbox" name="answer" value="answer-1" id="a-4">
       <label class="genre-answer-check" for="a-4"></label>
     </div>
 
@@ -82,5 +86,30 @@ const genre = getTemplate(`<section class="main main--level main--level-genre">
   </form>
 </div>
 </section>`);
+
+const slides = [result, resultTime, resultTry];
+
+const genreAnswerSend = genre.querySelector(`.genre-answer-send`);
+const checkBox = genre.querySelector(`.checkbox-answer`);
+
+genreAnswerSend.setAttribute(`disabled`, `disabled`);
+
+checkBox.addEventListener(`change`, (e) => {
+  e.preventDefault();
+
+  if (e.target.hasAttribute(`checked`)) {
+    e.target.removeAttribute(`checked`);
+    genreAnswerSend.setAttribute(`disabled`, `disabled`);
+  } else {
+    e.target.setAttribute(`checked`, `checked`);
+    genreAnswerSend.removeAttribute(`disabled`);
+  }
+});
+
+genreAnswerSend.addEventListener(`click`, (e) => {
+  e.preventDefault();
+  const rand = Math.floor(Math.random() * slides.length);
+  showScreen(slides[rand]);
+});
 
 export default genre;
