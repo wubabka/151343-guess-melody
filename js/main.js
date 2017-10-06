@@ -1,4 +1,4 @@
-import showScreen from './show-template';
-import welcomeScreen from './welcome-template';
+import showScreen from './templates/show-template';
+import welcomeScreen from './templates/welcome-template';
 
 showScreen(welcomeScreen);
