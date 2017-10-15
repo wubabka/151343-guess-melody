@@ -4,7 +4,9 @@ import {
   getAnswerValue,
   calculateStatistic,
   LEVEL_COUNT,
-  LIVES_COUNT
+  LIVES_COUNT,
+  PLAYER_ANSWERS,
+  getResult
 } from './util';
 
 describe(`Game`, () => {
@@ -34,4 +36,16 @@ describe(`Game`, () => {
       assert.equal(10, calculateStatistic(LIVES_COUNT, LEVEL_COUNT));
     });
   });
+
+  describe(`Statistics`, () => {
+    it(`Stat`, () => {
+      assert.equal(`Вы заняли 1-ое место из 4 игроков. Это лучше чем у 25% игроков`, getResult(PLAYER_ANSWERS));
+    });
+  });
+
+  // describe(`Timer`, () => {
+  //   it(`Timer down`, () => {
+  //     assert.equal(`Вы проиграли`, interval;
+  //   });
+  // });
 });
