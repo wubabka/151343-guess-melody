@@ -75,15 +75,16 @@ const getResult = (playerAnswers, stat) => {
   return 1;
 };
 
-// let timer = 5;
-
-// let interval = setInterval(() => {
-//   timer--;
-//   if (timer === 0) {
-//     clearInterval(interval);
-//     return `Вы проиграли`;
-//   }
-// }, 1000);
+const timer = (time) => {
+  let interval = setInterval(() => {
+    time--;
+    if (time === 0) {
+      clearInterval(interval);
+      return (`Вы проиграли`);
+    }
+    return `QQ`;
+  }, 1000);
+};
 
 export {
   ANSWER_VALUES,
@@ -94,5 +95,6 @@ export {
   LIVES_COUNT,
   PLAYER_ANSWERS,
   STAT,
-  getResult
+  getResult,
+  timer
 };

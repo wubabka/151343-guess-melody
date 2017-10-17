@@ -6,7 +6,8 @@ import {
   LEVEL_COUNT,
   LIVES_COUNT,
   PLAYER_ANSWERS,
-  getResult
+  getResult,
+  timer
 } from './util';
 
 describe(`Game`, () => {
@@ -43,9 +44,9 @@ describe(`Game`, () => {
     });
   });
 
-  // describe(`Timer`, () => {
-  //   it(`Timer down`, () => {
-  //     assert.equal(`Вы проиграли`, interval;
-  //   });
-  // });
+  describe(`Timer`, () => {
+    it(`Timer down`, () => {
+      assert.equal(`Вы проиграли`, timer(5));
+    });
+  });
 });
